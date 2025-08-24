@@ -421,6 +421,248 @@
             }
         }
     </style>
+    <style>
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust container padding for smaller screens */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Ensure header font sizes scale down */
+    .logo-text span:first-child {
+        font-size: 20px;
+    }
+
+    .logo-text span:last-child {
+        font-size: 22px;
+    }
+
+    /* Hero section adjustments */
+    .hero {
+        height: 350px;
+    }
+
+    .hero-content {
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+
+    /* About section adjustments */
+    .section-title {
+        font-size: 28px;
+    }
+
+    .about-text h3 {
+        font-size: 20px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+    }
+
+    .about-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Services section */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-icon {
+        font-size: 35px;
+    }
+
+    .service-card h3 {
+        font-size: 20px;
+    }
+
+    .service-card p {
+        font-size: 14px;
+    }
+
+    /* Team section */
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-member img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .team-member h3 {
+        font-size: 18px;
+    }
+
+    .team-member p {
+        font-size: 14px;
+    }
+
+    /* Contact section */
+    .info-item h3 {
+        font-size: 18px;
+    }
+
+    .info-item p {
+        font-size: 14px;
+    }
+
+    .info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Footer adjustments */
+    .social-links a {
+        font-size: 18px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+
+/* Additional media query for very small screens (e.g., phones below 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .hero {
+        height: 300px;
+    }
+
+    .hero-content {
+        padding: 40px 15px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .about-text h3 {
+        font-size: 18px;
+    }
+
+    .about-text p {
+        font-size: 13px;
+    }
+
+    .service-card {
+        padding: 15px;
+    }
+
+    .service-icon {
+        font-size: 30px;
+    }
+
+    .service-card h3 {
+        font-size: 18px;
+    }
+
+    .service-card p {
+        font-size: 13px;
+    }
+
+    .team-member img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .team-member h3 {
+        font-size: 16px;
+    }
+
+    .team-member p {
+        font-size: 13px;
+    }
+
+    .info-item h3 {
+        font-size: 16px;
+    }
+
+    .info-item p {
+        font-size: 13px;
+    }
+
+    .info-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .social-links a {
+        font-size: 16px;
+    }
+
+    footer p {
+        font-size: 11px;
+    }
+}
+
+/* Ensure images and elements don't overflow */
+img, video, iframe, object, embed {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure text doesn't overflow */
+p, h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+}
+
+/* Adjust slideshow for smaller screens */
+.slideshow .slide {
+    background-size: cover;
+    background-position: center;
+}
+</style>
 </head>
 <body>
     <!-- Header -->
