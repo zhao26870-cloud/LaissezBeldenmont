@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laissez Beldenmont</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Calisto MT', serif;
+        }
+        
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1c2526 0%, #2e3b4e 100%);
+            color: #e0e0e0;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .logo-text span:first-child {
+            color:  #e0e0e0;;
+            display: block;
+            font-size: 25px;
+            letter-spacing: 4px;
+        }
+        
+        .logo-text span:last-child {
+            color: #e0e0e0;
+            font-size: 28px;
+            letter-spacing: 3px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #b8860b;
+        }
+        
+        /* Hero Section with Slideshow */
+        .hero {
+            position: relative;
+            height: 600px;
+            color: #e0e0e0;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #b8860b;
+            color: #1c2526;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #d4a017;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #2e2e2e;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #e0e0e0;
+            font-size: 36px;
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #b8860b;
+            margin: 15px auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: #1a1a1a;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: #2e2e2e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: #b8860b;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #e0e0e0;
+            font-size: 22px;
+        }
+        
+        .service-card p {
+            font-size: 16px;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+            background-color: #2e2e2e;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #1a1a1a;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .team-member h3 {
+            margin-bottom: 5px;
+            color: #e0e0e0;
+            font-size: 20px;
+        }
+        
+        .team-member p {
+            color: #a0a0a0;
+            font-size: 16px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #1a1a1a;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: #b8860b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #1c2526;
+            font-size: 20px;
+        }
+        
+        .info-item h3 {
+            font-size: 20px;
+            color: #e0e0e0;
+            margin-bottom: 5px;
+        }
+        
+        .info-item p {
+            font-size: 16px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #2e2e2e;
+            color: #e0e0e0;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #b8860b;
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1c2526;
+            color: #e0e0e0;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: #e0e0e0;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #b8860b;
+        }
+        
+        footer p {
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+ <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html" class="logo-text">
+                        <span>LAISSEZ</span>
+                        <span>BELDENMONT</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="lbc_about.html">About</a>
+                    <a href="lbc_product.html">Products</a>
+                    <a href="lbc_services.html">Services</a>
+                    <a href="lbc_team.html">Team</a>
+                    <a href="lbc_contact.html">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+ <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Products</h2>
+            <div class="about-content">
+      
+<br><br><br><br>
+<p>At Laissez Beldenmont, our trading methodology is freestyle and phase-dependent, directly correlating to the portfolio's size and risk tolerance. Initially, we engage in high-conviction, high-yield strategies utilizing leveraged instruments such as short-duration options, volatility derivatives to target aggressive capital appreciation. This approach is designed for rapid growth from a smaller asset base, accepting calculated volatility to capture asymmetric returns.</p>
+
+<p>Upon reaching significant capital milestones, we systematically de-risk. This involves reducing exposure to purely speculative derivatives and progressively allocating to hard assets—specifically commercial real estate and physical commodities like precious metals. This transition phase prioritizes capital preservation while maintaining attractive, albeit a more moderate, growth.</p>
+
+<p>For a mature portfolio, our strategy shifts decidedly toward capital protection and consistent income. Trading activity becomes minimal and hyper-selective. The core focus moves to constructing portfolios heavily weighted toward structured credit, including investment-grade collateralized loan obligations (CLOs) and asset-backed securities (ABS). We exploit the structural seniority and credit tranches of these products to achieve superior risk-adjusted yields with minimal directional market exposure, ensuring stability and predictable returns.</p>
+</div>
+</section>
+ <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2025 Laissez Beldenmont. All rights reserved.</p>
+            <p>Proudly created by two 17-year-old entrepreneurs</p>
+        </div>
+    </footer>
